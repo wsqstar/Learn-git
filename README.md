@@ -23,12 +23,27 @@
 		- 在 push 之前，可以使用 git remote -v 来查看远程仓库情况
 		- 然后就可以使用 git push origin master 推送到远程仓库
 - git branch -a 确定当前分支情况 
-
-
-![示意图](https://bucket-for-things.oss-cn-beijing.aliyuncs.com/Learn/git/git-1.png)
-
-
-
+- 分支情况1：
+![分支情况1](https://bucket-for-things.oss-cn-beijing.aliyuncs.com/Learn/git/git-1.png)
+- push之后的情况：
+![push之后情况](https://bucket-for-things.oss-cn-beijing.aliyuncs.com/Learn/git/git-2-push%E4%B9%8B%E5%90%8E%E6%83%85%E5%86%B5.png)
+- 一套完整的操作：
+![一套完整的操作](https://bucket-for-things.oss-cn-beijing.aliyuncs.com/Learn/git/git-3-%E4%B8%80%E5%A5%97%E5%AE%8C%E6%95%B4%E7%9A%84%E6%93%8D%E4%BD%9C.png)
+4. 现在问题来了，如果我想要研究别人的代码，增加新的代码功能，并和其合并，我该怎么做?
+- 首先要新建一个分支（branch）` git check out -b dev`，于是本地新建了一个名为dev的分支
+- 此时git控制器自动跳转到新的分支，但是还是同样的文件夹。
+- 写完、测试完这个功能，就可以着手合并回master
+	-  首先切换回去 git checkout master
+	-  然后合并dev git merge dev 就会直接将dev分支合并到master中
+	-  记住那样还是得push上去哦
+5. 如果觉得自己写的不好或者不想用某一个开发了
+- 使用 git branch -D dev 来删除本地dev分支
+- git push origin :dev ，在删除本地之后，删除远程分支(冒号前面留空，代表本地为空内容)
+6. 如果觉得自己写的不好或者想要重新来过
+- 使用退回` git reset --hard head^ ` 回退到上一个版本
+- 如果觉得上一个版本其实不如下一个版本，可以	使用
+	- `git reflog`或者` git log `查看回退记录
+	- `git reset --hard [哈希生成代码] ` 回退到某一个版本
 You can use the [editor on GitHub](https://github.com/wsqstar/Learn-git/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 ### Markdown
