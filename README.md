@@ -3,7 +3,7 @@
 ### **git 的`使用逻辑`如下：**
 -  起步：创建项目git clone git init
 -  合作：创建分支、推送分支、合并分支
--  后悔药：删除分支、回退版本
+-  后悔药：删除分支、回退版本
 ### **使用流程如下：**
 1. 在github或者gitee上找到喜欢的库（resporiy）.
 2.  复制链接，在本地打开cmd 使用安装好的gitbash下载库。命令为 `git clone [链接]`
@@ -20,8 +20,8 @@
     -  如果新的文件有很多，可以选择使用 `git add . `来表示添加所有更新过的文件
 	-  `git commit -m "有关这次提交的信息"` ，使用这一个命令来提交到本地git，""里面的内容是注释
 	-  当觉得需要放到网上保险/和伙伴共享的时候，需要git push 来推送到云端(远程仓库)
-		- 在 push 之前，可以使用 git remote -v 来查看远程仓库情况
-		- 然后就可以使用 git push origin master 推送到远程仓库
+		- 在 push 之前，可以使用 `git remote -v` 来查看远程仓库情况
+		- 然后就可以使用 `git push origin master` 推送到远程仓库
 	- git branch -a 确定当前分支情况 
 	- 分支情况1：
 	![分支情况1](https://bucket-for-things.oss-cn-beijing.aliyuncs.com/Learn/git/git-1.png)
@@ -33,14 +33,14 @@
 	- 首先要新建一个分支（branch）` git check out -b dev`，于是本地新建了一个名为dev的分支
 	- 此时git控制器自动跳转到新的分支，但是还是同样的文件夹。
 	- 写完、测试完这个功能，就可以着手合并回master
-		-  首先切换回去 git checkout master
-		-  然后合并dev git merge dev 就会直接将dev分支合并到master中
+		-  首先切换回去 `git checkout master`,执行完本命令之后就到了主分支（master）
+		-  然后合并`dev git merge dev` 就会直接将dev分支合并到master中
 		-  记住那样还是得push上去哦
 5. 如果觉得自己写的不好或者不想用某一个开发了
-	- 使用 git branch -D dev 来删除本地dev分支
-	- git push origin :dev ，在删除本地之后，删除远程分支(冒号前面留空，代表本地为空内容)
+	- 使用 `git branch -D dev` 来删除本地dev分支
+	- `git push origin :dev` ，在删除本地之后，删除远程分支(冒号前面留空，代表本地为空内容)
 6. 如果觉得自己写的不好或者想要重新来过
-	- 使用退回` git reset --hard head^ ` 回退到上一个版本
-	- 如果觉得上一个版本其实不如下一个版本，可以	使用
+	- 使用退回` git reset --hard head^ ` 回退到上一个版本,感觉应该不加^，但是教程上加了，有时间尝试一下。
+	- 如果觉得上一个版本其实不如下一个版本，可以使用
 		- `git reflog`或者` git log `查看回退记录
-		- `git reset --hard [哈希生成代码] ` 回退到某一个版本
+		- `git reset --hard [哈希生成代码] ` 回退到某一个版本，哈希生成代码是每次commit就有的一个代码，代表一次更改也代表一个版本。
